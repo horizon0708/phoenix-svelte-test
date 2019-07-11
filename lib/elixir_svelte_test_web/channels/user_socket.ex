@@ -2,7 +2,7 @@ defmodule ElixirSvelteTestWeb.UserSocket do
   use Phoenix.Socket
 
   ## Channels
-  # channel "room:*", ElixirSvelteTestWeb.RoomChannel
+  channel "room:*", ElixirSvelteTestWeb.RoomChannel
 
   # Socket params are passed from the client and can
   # be used to verify and authenticate a user. After

@@ -12,6 +12,8 @@
     "svelte": "^3.0.0"
   },
   "dependencies": {
+    "phoenix": "^1.4.9",
+    "phoenix-socket": "^1.2.3",
     "sirv-cli": "^0.4.4"
   },
   "scripts": {

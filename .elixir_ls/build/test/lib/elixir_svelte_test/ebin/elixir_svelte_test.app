@@ -15,6 +15,7 @@
                         'Elixir.ElixirSvelteTestWeb.LayoutView',
                         'Elixir.ElixirSvelteTestWeb.PageController',
                         'Elixir.ElixirSvelteTestWeb.PageView',
+                        'Elixir.ElixirSvelteTestWeb.RoomChannel',
                         'Elixir.ElixirSvelteTestWeb.Router',
                         'Elixir.ElixirSvelteTestWeb.Router.Helpers',
                         'Elixir.ElixirSvelteTestWeb.UserSocket']},
