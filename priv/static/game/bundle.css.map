@@ -5,8 +5,8 @@
     "..\\..\\..\\game\\src\\App.svelte"
   ],
   "sourcesContent": [
-    "<script>\n  import phx from \"phoenix\";\n  import { onMount } from \"svelte\";\n  export let name;\n  const { Socket } = phx;\n\n  let socket = new Socket(\"/socket\", { params: { userToken: \"123\" } });\n  socket.connect()\n  let channel = socket.channel(\"room:lobby\", {});\n\n  onMount(async () => {\n\t  console.log(channel)\n    channel\n      .join()\n      .receive(\"ok\", resp => {\n        console.log(\"Joined successfully\", resp);\n      })\n      .receive(\"error\", resp => {\n        console.log(\"Unable to join\", resp);\n      });\n  });\n</script>\n\n<style>\n  h1 {\n    color: purple;\n  }\n</style>\n\n<h1>hmma {name}!</h1>\n"
+    "<script>\n  import phx from \"phoenix\";\n  import { onMount } from \"svelte\";\n  import { storeObj, changeNestedMutation, mutateSurreptitiously, update } from \"./store.js\"\n  export let name;\n  const { Socket } = phx;\n\n  let socket = new Socket(\"/socket\", { params: { userToken: \"123\" } });\n  socket.connect()\n  let channel = socket.channel(\"room:lobby\", {});\n\n  onMount(async () => {\n\t  console.log(channel)\n    channel\n      .join()\n      .receive(\"ok\", resp => {\n        console.log(\"Joined successfully\", resp);\n      })\n      .receive(\"error\", resp => {\n        console.log(\"Unable to join\", resp);\n      });\n  });\n\n</script>\n\n<style>\n  h1 {\n    color: purple;\n  }\n</style>\n\n<h1>hmma {name}!</h1>\nhm b is {$storeObj.b.b.b}\n\n<button on:click={changeNestedMutation}> change is good </button>\n<button on:click={mutateSurreptitiously}> but not too much </button>\n<button on:click={update}> update with some obj</button>"
   ],
   "names": [],
-  "mappings": "AAwBE,EAAE,eAAC,CAAC,AACF,KAAK,CAAE,MAAM,AACf,CAAC"
+  "mappings": "AA0BE,EAAE,eAAC,CAAC,AACF,KAAK,CAAE,MAAM,AACf,CAAC"
 }

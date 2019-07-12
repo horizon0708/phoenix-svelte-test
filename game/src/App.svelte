@@ -1,6 +1,7 @@
 <script>
   import phx from "phoenix";
   import { onMount } from "svelte";
+  import { storeObj, changeNestedMutation, mutateSurreptitiously, update } from "./store.js"
   export let name;
   const { Socket } = phx;
 
@@ -19,6 +20,7 @@
         console.log("Unable to join", resp);
       });
   });
+
 </script>
 
 <style>
@@ -28,3 +30,8 @@
 </style>
 
 <h1>hmma {name}!</h1>
+hm b is {$storeObj.b.b.b}
+
+<button on:click={changeNestedMutation}> change is good </button>
+<button on:click={mutateSurreptitiously}> but not too much </button>
+<button on:click={update}> update with some obj</button>
